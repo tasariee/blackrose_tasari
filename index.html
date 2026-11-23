@@ -98,12 +98,12 @@
         <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-crimson/10 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div class="max-w-4xl mx-auto text-center relative z-10">
-            <p class="text-xs uppercase tracking-[0.3em] text-roseGold mb-4">Novel • Cerpen • Non-Fiksi</p>
+            <p class="text-xs uppercase tracking-[0.3em] text-roseGold mb-4">Untaian • Pola Pikir • Kisah</p>
             <h1 class="font-serif text-5xl md:text-7xl font-bold text-parchment leading-tight mb-6">
                 Merangkai Sunyi Menjadi <span class="italic text-crimson">Abadi</span>
             </h1>
             <p class="text-mutedGray text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-                Selamat datang di ruang baca resmi <strong class="text-parchment font-medium">Black Rose</strong>. Tempat di mana fiksi melampaui batas imajinasi, dan catatan non-fiksi membedah realitas kehidupan secara mendalam.
+                Selamat datang di ruang baca resmi <strong class="text-parchment font-medium">Black Rose</strong>. Tempat di mana untaian kata melampaui batas imajinasi, kisah bermakna abadi, dan catatan pola pikir membedah realitas kehidupan secara mendalam.
             </p>
             <div class="flex flex-wrap items-center justify-center gap-4">
                 <a href="#karya" class="px-7 py-3.5 bg-crimson hover:bg-crimson/90 text-white text-sm font-medium rounded-full transition shadow-lg shadow-crimson/20">
@@ -124,7 +124,7 @@
                 <div>
                     <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-emerald-500/20 text-emerald-400 rounded-md font-semibold">Akses Penuh Aktif</span>
                     <h2 class="font-serif text-3xl font-bold text-parchment mt-2">Meja Kerja Black Rose</h2>
-                    <p class="text-xs text-mutedGray">Tambahkan novel bersambung, cerpen baru, atau esai non-fiksi langsung ke dalam rak publikasi.</p>
+                    <p class="text-xs text-mutedGray">Tambahkan untaian, catatan pola pikir, atau kisah baru langsung ke dalam rak publikasi.</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <button onclick="openNewStoryModal()" class="flex items-center gap-2 px-5 py-2.5 bg-roseGold text-obsidian font-semibold text-sm rounded-lg hover:bg-roseGold/90 transition">
@@ -145,9 +145,9 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div class="flex flex-wrap items-center gap-2" id="categoryFilters">
                 <button onclick="filterWorks('Semua')" class="filter-btn active px-5 py-2 rounded-full text-sm font-medium bg-crimson text-white transition">Semua Karya</button>
-                <button onclick="filterWorks('Novel')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Novel</button>
-                <button onclick="filterWorks('Cerpen')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Cerpen</button>
-                <button onclick="filterWorks('Non-Fiksi')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Non-Fiksi</button>
+                <button onclick="filterWorks('Untaian')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Untaian</button>
+                <button onclick="filterWorks('Pola Pikir')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Pola Pikir</button>
+                <button onclick="filterWorks('Kisah')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Kisah</button>
             </div>
 
             <div class="relative w-full md:w-72">
@@ -174,7 +174,7 @@
                 <span class="text-xs uppercase tracking-widest text-roseGold">Profil Penulis</span>
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-parchment mt-1 mb-4">Black Rose</h2>
                 <p class="text-mutedGray text-sm md:text-base leading-relaxed mb-6">
-                    Seorang penulis yang mendedikasikan kata-kata untuk menjembatani rasa dan logika. Melalui karya novel yang puitis, cerpen yang menggugah, serta buku non-fiksi yang reflektif, Black Rose percaya bahwa setiap tulisan yang jujur akan selalu menemukan pembacanya sendiri.
+                    Seorang penulis yang mendedikasikan kata-kata untuk menjembatani rasa dan logika. Melalui untaian yang puitis, kisah yang menggugah, serta catatan pola pikir yang reflektif, Black Rose percaya bahwa setiap tulisan yang jujur akan selalu menemukan pembacanya sendiri.
                 </p>
                 <a href="https://instagram.com/tasariee_" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-roseGold hover:underline">
                     <i data-lucide="instagram" class="w-4 h-4"></i>
@@ -231,8 +231,7 @@
                 <button onclick="closeAuthorModal()" class="text-mutedGray hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
             <p class="text-xs text-mutedGray mb-5 leading-relaxed">
-                Masukkan sandi akses untuk membuka ruang editor dan menambahkan tulisan baru. <br>
-                <span class="text-roseGold/80 italic">(Sandi bawaan Anda: <strong>blackrose2026</strong> — dapat diubah di dalam kode)</span>
+                Masukkan kata sandi khusus penulis untuk membuka meja kerja dan mengelola publikasi karya.
             </p>
             <form onsubmit="verifyAuthor(event)" class="space-y-4">
                 <div>
@@ -266,9 +265,9 @@
                     <div>
                         <label class="block text-xs text-mutedGray mb-1.5">Kategori *</label>
                         <select id="storyCategory" class="w-full px-4 py-2.5 bg-obsidian border border-white/10 rounded-xl text-sm text-parchment focus:outline-none focus:border-roseGold">
-                            <option value="Novel">Novel</option>
-                            <option value="Cerpen">Cerpen</option>
-                            <option value="Non-Fiksi">Non-Fiksi</option>
+                            <option value="Untaian">Untaian</option>
+                            <option value="Pola Pikir">Pola Pikir</option>
+                            <option value="Kisah">Kisah</option>
                         </select>
                     </div>
                 </div>
@@ -295,24 +294,24 @@
 
     <!-- JAVASCRIPT ENGINE (Bebas Bug & Aman dengan Sanitasi XSS) -->
     <script>
-        // Konfigurasi Kata Sandi Penulis (Bisa diganti sesuai keinginan)
+        // Konfigurasi Kata Sandi Penulis
         const AUTHOR_PASSCODE = "alfaqier17";
-        const STORAGE_KEY = "black_rose_works_v1";
+        const STORAGE_KEY = "black_rose_works_v2";
 
         // Data Awal Template (Siap dibaca & bisa dihapus/diedit kapan saja oleh penulis)
         const defaultWorks = [
             {
                 id: "br-1",
                 title: "Di Balik Kelopak Mawar Hitam",
-                category: "Novel",
+                category: "Untaian",
                 date: "23 November 2026",
-                excerpt: "Bab 1: Tidak semua bunga mekar untuk dipetik. Sebagian tumbuh di tempat paling gelap hanya untuk membuktikan bahwa keindahan tidak butuh cahaya.",
-                content: "Hujan turun rintik-rintik membasahi jendela kaca ruang kerja yang temaram. Di atas meja kayu mahoni, secangkir kopi yang telah mendingin bersanding dengan lembaran naskah yang belum rampung.\n\nOrang-orang sering bertanya mengapa aku memilih nama Black Rose. Bagi mereka, hitam adalah tanda berakhirnya sesuatu. Namun bagiku, hitam adalah kanvas paling jujur—tempat di mana setiap tetes tinta emas dan merah marun terlihat begitu nyata.\n\nKisah ini bermula dari sebuah kota kecil yang menyimpan ribuan rahasia di balik kabut paginya..."
+                excerpt: "Tidak semua bunga mekar untuk dipetik. Sebagian tumbuh di tempat paling gelap hanya untuk membuktikan bahwa keindahan tidak butuh cahaya.",
+                content: "Hujan turun rintik-rintik membasahi jendela kaca ruang kerja yang temaram. Di atas meja kayu mahoni, secangkir kopi yang telah mendingin bersanding dengan lembaran naskah yang belum rampung.\n\nOrang-orang sering bertanya mengapa aku memilih nama Black Rose. Bagi mereka, hitam adalah tanda berakhirnya sesuatu. Namun bagiku, hitam adalah kanvas paling jujur—tempat di mana setiap tetes tinta emas dan merah marun terlihat begitu nyata.\n\nUntaian ini bermula dari sebuah ruang sunyi yang menyimpan ribuan makna di balik setiap detiknya..."
             },
             {
                 id: "br-2",
                 title: "Surat yang Tidak Pernah Sampai ke Stasiun",
-                category: "Cerpen",
+                category: "Kisah",
                 date: "18 November 2026",
                 excerpt: "Dua tiket kereta, satu bangku peron yang dingin, dan sepucuk amplop cokelat yang tertinggal di saku mantel.",
                 content: "Kereta terakhir menuju selatan baru saja berangkat lima menit yang lalu, menyisakan kepulan asap tipis dan suara derit rel yang perlahan menghilang.\n\nAruna masih berdiri di peron nomor tiga. Tangannya menggenggam erat sepucuk surat yang sudutnya mulai kusut. Jika saja ia datang tiga menit lebih awal, mungkin seluruh alur hidupnya tidak akan pernah berubah seperti hari ini.\n\nNamun waktu tidak mengenal kata seandainya. Ia hanya berjalan lurus, memaksa siapa pun yang tertinggal untuk belajar merelakan."
@@ -320,7 +319,7 @@
             {
                 id: "br-3",
                 title: "Seni Merawat Kewarasan di Era Bising",
-                category: "Non-Fiksi",
+                category: "Pola Pikir",
                 date: "10 November 2026",
                 excerpt: "Refleksi mendalam tentang bagaimana manusia modern kehilangan ruang sunyi, dan cara merebut kembali kendali atas pikiran sendiri.",
                 content: "Kita hidup di zaman di mana perhatian manusia adalah mata uang paling mahal. Setiap detik, layar ponsel kita berlomba-lomba memanggil kesadaran kita untuk bereaksi terhadap hal-hal yang sering kali tidak berada dalam kendali kita.\n\nMenulis dan membaca bukan sekadar hobi; keduanya adalah bentuk perlawanan paling sunyi terhadap kebisingan dunia. Saat kita duduk diam dan merangkai kalimat, kita sedang memaksa pikiran untuk melambat, mengamati, dan memahami makna di balik peristiwa.\n\nMulailah dengan menyisihkan lima belas menit setiap hari tanpa gawai. Dengarkan kembali suara pikiranmu sendiri."
@@ -454,7 +453,6 @@
             document.getElementById("readerDate").textContent = story.date;
             document.getElementById("readerReadTime").textContent = calculateReadTime(story.content);
 
-            // Ubah baris baru (\n) menjadi paragraf HTML yang aman
             const paragraphs = story.content
                 .split(/\n+/)
                 .filter(p => p.trim() !== "")
@@ -530,7 +528,7 @@
             document.getElementById("editorModalTitle").textContent = "Publikasikan Karya Baru";
             document.getElementById("editStoryId").value = "";
             document.getElementById("storyTitle").value = "";
-            document.getElementById("storyCategory").value = "Novel";
+            document.getElementById("storyCategory").value = "Untaian";
             document.getElementById("storyExcerpt").value = "";
             document.getElementById("storyContent").value = "";
             document.getElementById("editorModal").classList.remove("hidden");
