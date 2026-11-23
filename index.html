@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Rose — Ruang Karya Sastra & Literasi</title>
+    <!-- Tailwind CSS untuk tata letak modern dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts untuk nuansa tipografi buku klasik & modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: '#0B0B0E',
+                        charcoal: '#141419',
+                        crimson: '#9E1B32',
+                        roseGold: '#D4A373',
+                        parchment: '#F4F1EA',
+                        mutedGray: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0B0E;
+            color: #F4F1EA;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9E1B32;
+        }
+        .prose-reader p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1.125rem;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-crimson selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-40 bg-obsidian/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-full bg-crimson/20 border border-crimson flex items-center justify-center text-crimson group-hover:bg-crimson group-hover:text-white transition">
+                    <i data-lucide="feather" class="w-4 h-4"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-wide text-parchment">Black Rose</span>
+                    <span class="block text-[10px] uppercase tracking-[0.25em] text-roseGold">Official Archive</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm text-mutedGray">
+                <a href="#karya" class="hover:text-parchment transition">Katalog Karya</a>
+                <a href="#tentang" class="hover:text-parchment transition">Tentang Penulis</a>
+                <a href="https://instagram.com/tasariee_" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-roseGold hover:text-white transition">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                    <span>@tasariee_</span>
+                </a>
+            </div>
+
+            <!-- Tombol Akses Penulis -->
+            <div class="flex items-center gap-3">
+                <button id="btnAuthorMode" onclick="openAuthorModal()" class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium border border-roseGold/40 text-roseGold hover:bg-roseGold hover:text-obsidian transition">
+                    <i data-lucide="lock" class="w-3.5 h-3.5" id="lockIcon"></i>
+                    <span id="authorBtnText">Mode Penulis</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="pt-36 pb-20 px-6 border-b border-white/5 relative overflow-hidden">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-crimson/10 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <p class="text-xs uppercase tracking-[0.3em] text-roseGold mb-4">Novel • Cerpen • Non-Fiksi</p>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-parchment leading-tight mb-6">
+                Merangkai Sunyi Menjadi <span class="italic text-crimson">Abadi</span>
+            </h1>
+            <p class="text-mutedGray text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+                Selamat datang di ruang baca resmi <strong class="text-parchment font-medium">Black Rose</strong>. Tempat di mana fiksi melampaui batas imajinasi, dan catatan non-fiksi membedah realitas kehidupan secara mendalam.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#karya" class="px-7 py-3.5 bg-crimson hover:bg-crimson/90 text-white text-sm font-medium rounded-full transition shadow-lg shadow-crimson/20">
+                    Jelajahi Semua Karya
+                </a>
+                <a href="https://instagram.com/tasariee_" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 bg-charcoal hover:bg-white/10 border border-white/10 text-parchment text-sm font-medium rounded-full transition flex items-center gap-2">
+                    <i data-lucide="instagram" class="w-4 h-4 text-roseGold"></i>
+                    Ikuti @tasariee_
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PANEL EDITOR KHUSUS PENULIS (Tersembunyi sampai login) -->
+    <section id="writerDashboard" class="hidden bg-charcoal border-b border-roseGold/30 py-10 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                <div>
+                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-emerald-500/20 text-emerald-400 rounded-md font-semibold">Akses Penuh Aktif</span>
+                    <h2 class="font-serif text-3xl font-bold text-parchment mt-2">Meja Kerja Black Rose</h2>
+                    <p class="text-xs text-mutedGray">Tambahkan novel bersambung, cerpen baru, atau esai non-fiksi langsung ke dalam rak publikasi.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="openNewStoryModal()" class="flex items-center gap-2 px-5 py-2.5 bg-roseGold text-obsidian font-semibold text-sm rounded-lg hover:bg-roseGold/90 transition">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                        Tulis Karya Baru
+                    </button>
+                    <button onclick="logoutAuthor()" class="px-4 py-2.5 bg-white/5 hover:bg-white/10 text-mutedGray text-xs rounded-lg transition">
+                        Keluar Mode Penulis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KATALOG KARYA -->
+    <main id="karya" class="max-w-6xl mx-auto px-6 py-20">
+        <!-- Filter & Pencarian -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div class="flex flex-wrap items-center gap-2" id="categoryFilters">
+                <button onclick="filterWorks('Semua')" class="filter-btn active px-5 py-2 rounded-full text-sm font-medium bg-crimson text-white transition">Semua Karya</button>
+                <button onclick="filterWorks('Novel')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Novel</button>
+                <button onclick="filterWorks('Cerpen')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Cerpen</button>
+                <button onclick="filterWorks('Non-Fiksi')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition">Non-Fiksi</button>
+            </div>
+
+            <div class="relative w-full md:w-72">
+                <i data-lucide="search" class="w-4 h-4 text-mutedGray absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input type="text" id="searchInput" oninput="renderWorks()" placeholder="Cari judul atau tema..." class="w-full pl-10 pr-4 py-2.5 bg-charcoal border border-white/10 rounded-full text-sm text-parchment placeholder-mutedGray focus:outline-none focus:border-roseGold">
+            </div>
+        </div>
+
+        <!-- Grid Kartu Tulisan -->
+        <div id="worksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Konten dirender otomatis melalui JavaScript yang aman -->
+        </div>
+    </main>
+
+    <!-- TENTANG PENULIS -->
+    <section id="tentang" class="bg-charcoal/60 border-t border-white/5 py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <div class="w-36 h-36 rounded-full bg-gradient-to-tr from-crimson to-roseGold p-1 shrink-0">
+                <div class="w-full h-full rounded-full bg-obsidian flex items-center justify-center">
+                    <span class="font-serif text-4xl italic font-bold text-roseGold">BR</span>
+                </div>
+            </div>
+            <div>
+                <span class="text-xs uppercase tracking-widest text-roseGold">Profil Penulis</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-parchment mt-1 mb-4">Black Rose</h2>
+                <p class="text-mutedGray text-sm md:text-base leading-relaxed mb-6">
+                    Seorang penulis yang mendedikasikan kata-kata untuk menjembatani rasa dan logika. Melalui karya novel yang puitis, cerpen yang menggugah, serta buku non-fiksi yang reflektif, Black Rose percaya bahwa setiap tulisan yang jujur akan selalu menemukan pembacanya sendiri.
+                </p>
+                <a href="https://instagram.com/tasariee_" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-roseGold hover:underline">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                    Terhubung di Instagram: @tasariee_
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 py-10 px-6 text-center text-xs text-mutedGray">
+        <p class="font-serif text-lg text-parchment mb-2">Black Rose</p>
+        <p>&copy; 2026 Hak Cipta Dilindungi. Seluruh karya tulis merupakan properti intelektual Black Rose (<a href="https://instagram.com/tasariee_" target="_blank" class="text-roseGold hover:underline">@tasariee_</a>).</p>
+    </footer>
+
+    <!-- MODAL BACA KARYA (READER VIEW) -->
+    <div id="readerModal" class="fixed inset-0 z-50 hidden bg-obsidian/95 backdrop-blur-lg overflow-y-auto">
+        <div class="max-w-3xl mx-auto px-6 py-12">
+            <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-8 sticky top-0 bg-obsidian/95 py-4 z-10">
+                <span id="readerCategory" class="px-3 py-1 text-xs rounded-full bg-crimson/20 text-crimson font-medium">Kategori</span>
+                <button onclick="closeReaderModal()" class="flex items-center gap-1.5 text-sm text-mutedGray hover:text-white transition">
+                    <span>Tutup Ruang Baca</span>
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <article>
+                <h1 id="readerTitle" class="font-serif text-4xl md:text-5xl font-bold text-parchment leading-tight mb-4">Judul Karya</h1>
+                <div class="flex items-center gap-4 text-xs text-mutedGray mb-10 pb-6 border-b border-white/10">
+                    <span>Oleh <strong class="text-roseGold">Black Rose</strong></span>
+                    <span>•</span>
+                    <span id="readerDate">Tanggal</span>
+                    <span>•</span>
+                    <span id="readerReadTime">5 mnt baca</span>
+                </div>
+                
+                <div id="readerContent" class="font-serif text-parchment/90 prose-reader">
+                    <!-- Isi tulisan muncul di sini -->
+                </div>
+            </article>
+
+            <div class="mt-16 pt-8 border-t border-white/10 flex items-center justify-between">
+                <p class="text-xs text-mutedGray">Suka dengan karya ini? Bagikan kesanmu ke <a href="https://instagram.com/tasariee_" target="_blank" class="text-roseGold hover:underline">@tasariee_</a></p>
+                <button onclick="closeReaderModal()" class="px-5 py-2 bg-charcoal border border-white/10 rounded-full text-xs text-parchment hover:bg-white/10">Kembali ke Katalog</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LOGIN MODE PENULIS -->
+    <div id="authorLoginModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-charcoal border border-white/10 rounded-2xl max-w-md w-full p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="font-serif text-2xl font-bold text-parchment">Akses Penulis Black Rose</h3>
+                <button onclick="closeAuthorModal()" class="text-mutedGray hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <p class="text-xs text-mutedGray mb-5 leading-relaxed">
+                Masukkan sandi akses untuk membuka ruang editor dan menambahkan tulisan baru. <br>
+                <span class="text-roseGold/80 italic">(Sandi bawaan Anda: <strong>blackrose2026</strong> — dapat diubah di dalam kode)</span>
+            </p>
+            <form onsubmit="verifyAuthor(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1.5">Kata Sandi Penulis</label>
+                    <input type="password" id="authorPasswordInput" required placeholder="••••••••••••" class="w-full px-4 py-3 bg-obsidian border border-white/10 rounded-xl text-sm text-parchment focus:outline-none focus:border-roseGold">
+                </div>
+                <p id="loginErrorMsg" class="text-xs text-crimson hidden">Kata sandi tidak sesuai. Silakan coba lagi.</p>
+                <button type="submit" class="w-full py-3 bg-crimson hover:bg-crimson/90 text-white font-medium text-sm rounded-xl transition">
+                    Masuk ke Meja Kerja
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL TULIS / EDIT KARYA BARU -->
+    <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm overflow-y-auto p-4">
+        <div class="bg-charcoal border border-white/10 rounded-2xl max-w-3xl mx-auto my-8 p-6 md:p-8 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                <h3 id="editorModalTitle" class="font-serif text-2xl font-bold text-parchment">Publikasikan Karya Baru</h3>
+                <button onclick="closeEditorModal()" class="text-mutedGray hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+
+            <form onsubmit="saveStory(event)" class="space-y-5">
+                <input type="hidden" id="editStoryId">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-xs text-mutedGray mb-1.5">Judul Karya *</label>
+                        <input type="text" id="storyTitle" required placeholder="Contoh: Kelopak Terakhir di Bulan November" class="w-full px-4 py-2.5 bg-obsidian border border-white/10 rounded-xl text-sm text-parchment focus:outline-none focus:border-roseGold">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-mutedGray mb-1.5">Kategori *</label>
+                        <select id="storyCategory" class="w-full px-4 py-2.5 bg-obsidian border border-white/10 rounded-xl text-sm text-parchment focus:outline-none focus:border-roseGold">
+                            <option value="Novel">Novel</option>
+                            <option value="Cerpen">Cerpen</option>
+                            <option value="Non-Fiksi">Non-Fiksi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1.5">Sinopsis / Kutipan Singkat (Tampil di kartu katalog) *</label>
+                    <textarea id="storyExcerpt" rows="2" required placeholder="Tuliskan ringkasan singkat yang memikat pembaca..." class="w-full px-4 py-2.5 bg-obsidian border border-white/10 rounded-xl text-sm text-parchment focus:outline-none focus:border-roseGold"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1.5">Isi Tulisan Lengkap * <span class="text-roseGold/70">(Gunakan Enter untuk paragraf baru)</span></label>
+                    <textarea id="storyContent" rows="12" required placeholder="Mulai mengetik ceritamu di sini..." class="w-full px-4 py-3 bg-obsidian border border-white/10 rounded-xl text-sm font-serif text-base text-parchment leading-relaxed focus:outline-none focus:border-roseGold"></textarea>
+                </div>
+
+                <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+                    <button type="button" onclick="closeEditorModal()" class="px-5 py-2.5 rounded-xl text-xs text-mutedGray hover:bg-white/5">Batal</button>
+                    <button type="submit" class="px-6 py-2.5 bg-roseGold text-obsidian font-semibold text-sm rounded-xl hover:bg-roseGold/90 transition">
+                        Simpan & Terbitkan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE (Bebas Bug & Aman dengan Sanitasi XSS) -->
+    <script>
+        // Konfigurasi Kata Sandi Penulis (Bisa diganti sesuai keinginan)
+        const AUTHOR_PASSCODE = "blackrose2026";
+        const STORAGE_KEY = "black_rose_works_v1";
+
+        // Data Awal Template (Siap dibaca & bisa dihapus/diedit kapan saja oleh penulis)
+        const defaultWorks = [
+            {
+                id: "br-1",
+                title: "Di Balik Kelopak Mawar Hitam",
+                category: "Novel",
+                date: "23 November 2026",
+                excerpt: "Bab 1: Tidak semua bunga mekar untuk dipetik. Sebagian tumbuh di tempat paling gelap hanya untuk membuktikan bahwa keindahan tidak butuh cahaya.",
+                content: "Hujan turun rintik-rintik membasahi jendela kaca ruang kerja yang temaram. Di atas meja kayu mahoni, secangkir kopi yang telah mendingin bersanding dengan lembaran naskah yang belum rampung.\n\nOrang-orang sering bertanya mengapa aku memilih nama Black Rose. Bagi mereka, hitam adalah tanda berakhirnya sesuatu. Namun bagiku, hitam adalah kanvas paling jujur—tempat di mana setiap tetes tinta emas dan merah marun terlihat begitu nyata.\n\nKisah ini bermula dari sebuah kota kecil yang menyimpan ribuan rahasia di balik kabut paginya..."
+            },
+            {
+                id: "br-2",
+                title: "Surat yang Tidak Pernah Sampai ke Stasiun",
+                category: "Cerpen",
+                date: "18 November 2026",
+                excerpt: "Dua tiket kereta, satu bangku peron yang dingin, dan sepucuk amplop cokelat yang tertinggal di saku mantel.",
+                content: "Kereta terakhir menuju selatan baru saja berangkat lima menit yang lalu, menyisakan kepulan asap tipis dan suara derit rel yang perlahan menghilang.\n\nAruna masih berdiri di peron nomor tiga. Tangannya menggenggam erat sepucuk surat yang sudutnya mulai kusut. Jika saja ia datang tiga menit lebih awal, mungkin seluruh alur hidupnya tidak akan pernah berubah seperti hari ini.\n\nNamun waktu tidak mengenal kata seandainya. Ia hanya berjalan lurus, memaksa siapa pun yang tertinggal untuk belajar merelakan."
+            },
+            {
+                id: "br-3",
+                title: "Seni Merawat Kewarasan di Era Bising",
+                category: "Non-Fiksi",
+                date: "10 November 2026",
+                excerpt: "Refleksi mendalam tentang bagaimana manusia modern kehilangan ruang sunyi, dan cara merebut kembali kendali atas pikiran sendiri.",
+                content: "Kita hidup di zaman di mana perhatian manusia adalah mata uang paling mahal. Setiap detik, layar ponsel kita berlomba-lomba memanggil kesadaran kita untuk bereaksi terhadap hal-hal yang sering kali tidak berada dalam kendali kita.\n\nMenulis dan membaca bukan sekadar hobi; keduanya adalah bentuk perlawanan paling sunyi terhadap kebisingan dunia. Saat kita duduk diam dan merangkai kalimat, kita sedang memaksa pikiran untuk melambat, mengamati, dan memahami makna di balik peristiwa.\n\nMulailah dengan menyisihkan lima belas menit setiap hari tanpa gawai. Dengarkan kembali suara pikiranmu sendiri."
+            }
+        ];
+
+        // State Aplikasi
+        let works = [];
+        let currentCategory = "Semua";
+        let isAuthorLoggedIn = sessionStorage.getItem("br_author_auth") === "true";
+
+        // Fungsi Keamanan: Mencegah injeksi HTML/XSS saat menampilkan teks
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // Inisialisasi Data dari LocalStorage
+        function initApp() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    works = JSON.parse(saved);
+                } else {
+                    works = [...defaultWorks];
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(works));
+                }
+            } catch (e) {
+                works = [...defaultWorks];
+            }
+            updateAuthorUI();
+            renderWorks();
+            lucide.createIcons();
+        }
+
+        // Simpan perubahan ke LocalStorage
+        function syncStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(works));
+        }
+
+        // Hitung estimasi waktu baca
+        function calculateReadTime(text) {
+            const words = text.trim().split(/\s+/).length;
+            const mins = Math.max(1, Math.ceil(words / 200));
+            return `${mins} mnt baca`;
+        }
+
+        // Render Daftar Karya ke Layar
+        function renderWorks() {
+            const grid = document.getElementById("worksGrid");
+            const searchQuery = document.getElementById("searchInput").value.toLowerCase().trim();
+
+            const filtered = works.filter(item => {
+                const matchCat = currentCategory === "Semua" || item.category === currentCategory;
+                const matchSearch = item.title.toLowerCase().includes(searchQuery) || 
+                                    item.excerpt.toLowerCase().includes(searchQuery);
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 bg-charcoal/40 rounded-2xl border border-white/5">
+                        <p class="font-serif text-2xl text-parchment mb-2">Belum ada karya ditemukan</p>
+                        <p class="text-xs text-mutedGray">Coba ubah kata kunci pencarian atau pilih kategori lain.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(item => `
+                <article class="bg-charcoal border border-white/10 hover:border-roseGold/50 rounded-2xl p-7 flex flex-col justify-between transition duration-300 group">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 text-[11px] font-medium rounded-full bg-crimson/15 text-crimson border border-crimson/20">
+                                ${escapeHTML(item.category)}
+                            </span>
+                            <span class="text-xs text-mutedGray">${escapeHTML(item.date)}</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-parchment group-hover:text-roseGold transition mb-3 leading-snug">
+                            ${escapeHTML(item.title)}
+                        </h3>
+                        <p class="text-sm text-mutedGray leading-relaxed line-clamp-3 mb-6">
+                            ${escapeHTML(item.excerpt)}
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <button onclick="openReader('${item.id}')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-parchment group-hover:text-roseGold transition">
+                            <span>Baca Selengkapnya</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+
+                        ${isAuthorLoggedIn ? `
+                            <div class="flex items-center gap-2">
+                                <button onclick="openEditStory('${item.id}')" title="Edit Tulisan" class="p-1.5 rounded-lg bg-white/5 hover:bg-roseGold hover:text-obsidian text-mutedGray transition">
+                                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <button onclick="deleteStory('${item.id}')" title="Hapus Tulisan" class="p-1.5 rounded-lg bg-white/5 hover:bg-crimson hover:text-white text-mutedGray transition">
+                                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+                        ` : `<span class="text-[11px] text-mutedGray">${calculateReadTime(item.content)}</span>`}
+                    </div>
+                </article>
+            `).join("");
+
+            lucide.createIcons();
+        }
+
+        // Filter Kategori
+        function filterWorks(category) {
+            currentCategory = category;
+            document.querySelectorAll(".filter-btn").forEach(btn => {
+                if (btn.textContent.includes(category) || (category === "Semua" && btn.textContent.includes("Semua"))) {
+                    btn.className = "filter-btn active px-5 py-2 rounded-full text-sm font-medium bg-crimson text-white transition";
+                } else {
+                    btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium bg-charcoal text-mutedGray hover:text-white border border-white/10 transition";
+                }
+            });
+            renderWorks();
+        }
+
+        // Modal Pembaca
+        function openReader(id) {
+            const story = works.find(w => w.id === id);
+            if (!story) return;
+
+            document.getElementById("readerCategory").textContent = story.category;
+            document.getElementById("readerTitle").textContent = story.title;
+            document.getElementById("readerDate").textContent = story.date;
+            document.getElementById("readerReadTime").textContent = calculateReadTime(story.content);
+
+            // Ubah baris baru (\n) menjadi paragraf HTML yang aman
+            const paragraphs = story.content
+                .split(/\n+/)
+                .filter(p => p.trim() !== "")
+                .map(p => `<p>${escapeHTML(p)}</p>`)
+                .join("");
+
+            document.getElementById("readerContent").innerHTML = paragraphs;
+            document.getElementById("readerModal").classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+            lucide.createIcons();
+        }
+
+        function closeReaderModal() {
+            document.getElementById("readerModal").classList.add("hidden");
+            document.body.style.overflow = "auto";
+        }
+
+        // Sistem Otentikasi & Akses Penuh Penulis
+        function openAuthorModal() {
+            if (isAuthorLoggedIn) {
+                document.getElementById("writerDashboard").scrollIntoView({ behavior: "smooth" });
+                return;
+            }
+            document.getElementById("loginErrorMsg").classList.add("hidden");
+            document.getElementById("authorPasswordInput").value = "";
+            document.getElementById("authorLoginModal").classList.remove("hidden");
+        }
+
+        function closeAuthorModal() {
+            document.getElementById("authorLoginModal").classList.add("hidden");
+        }
+
+        function verifyAuthor(e) {
+            e.preventDefault();
+            const input = document.getElementById("authorPasswordInput").value;
+            if (input === AUTHOR_PASSCODE) {
+                isAuthorLoggedIn = true;
+                sessionStorage.setItem("br_author_auth", "true");
+                closeAuthorModal();
+                updateAuthorUI();
+                renderWorks();
+            } else {
+                document.getElementById("loginErrorMsg").classList.remove("hidden");
+            }
+        }
+
+        function logoutAuthor() {
+            isAuthorLoggedIn = false;
+            sessionStorage.removeItem("br_author_auth");
+            updateAuthorUI();
+            renderWorks();
+        }
+
+        function updateAuthorUI() {
+            const dashboard = document.getElementById("writerDashboard");
+            const btnText = document.getElementById("authorBtnText");
+            const lockIcon = document.getElementById("lockIcon");
+
+            if (isAuthorLoggedIn) {
+                dashboard.classList.remove("hidden");
+                btnText.textContent = "Penulis Aktif";
+                lockIcon.setAttribute("data-lucide", "unlock");
+            } else {
+                dashboard.classList.add("hidden");
+                btnText.textContent = "Mode Penulis";
+                lockIcon.setAttribute("data-lucide", "lock");
+            }
+            lucide.createIcons();
+        }
+
+        // CRUD Tulisan (Tambah, Edit, Hapus)
+        function openNewStoryModal() {
+            document.getElementById("editorModalTitle").textContent = "Publikasikan Karya Baru";
+            document.getElementById("editStoryId").value = "";
+            document.getElementById("storyTitle").value = "";
+            document.getElementById("storyCategory").value = "Novel";
+            document.getElementById("storyExcerpt").value = "";
+            document.getElementById("storyContent").value = "";
+            document.getElementById("editorModal").classList.remove("hidden");
+        }
+
+        function openEditStory(id) {
+            const story = works.find(w => w.id === id);
+            if (!story) return;
+
+            document.getElementById("editorModalTitle").textContent = "Sunting Karya";
+            document.getElementById("editStoryId").value = story.id;
+            document.getElementById("storyTitle").value = story.title;
+            document.getElementById("storyCategory").value = story.category;
+            document.getElementById("storyExcerpt").value = story.excerpt;
+            document.getElementById("storyContent").value = story.content;
+            document.getElementById("editorModal").classList.remove("hidden");
+        }
+
+        function closeEditorModal() {
+            document.getElementById("editorModal").classList.add("hidden");
+        }
+
+        function saveStory(e) {
+            e.preventDefault();
+            const id = document.getElementById("editStoryId").value;
+            const title = document.getElementById("storyTitle").value.trim();
+            const category = document.getElementById("storyCategory").value;
+            const excerpt = document.getElementById("storyExcerpt").value.trim();
+            const content = document.getElementById("storyContent").value.trim();
+
+            const today = new Date().toLocaleDateString("id-ID", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+            if (id) {
+                const index = works.findIndex(w => w.id === id);
+                if (index !== -1) {
+                    works[index] = { ...works[index], title, category, excerpt, content };
+                }
+            } else {
+                const newWork = {
+                    id: "br-" + Date.now(),
+                    title,
+                    category,
+                    date: today,
+                    excerpt,
+                    content
+                };
+                works.unshift(newWork);
+            }
+
+            syncStorage();
+            closeEditorModal();
+            renderWorks();
+        }
+
+        function deleteStory(id) {
+            if (confirm("Apakah Anda yakin ingin menghapus karya ini secara permanen?")) {
+                works = works.filter(w => w.id !== id);
+                syncStorage();
+                renderWorks();
+            }
+        }
+
+        // Jalankan aplikasi saat halaman siap
+        window.addEventListener("DOMContentLoaded", initApp);
+    </script>
+</body>
+</html>
